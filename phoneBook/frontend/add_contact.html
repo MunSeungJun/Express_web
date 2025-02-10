@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    
+</head>
+<body>
+    <main>
+        <form action="http://localhost:3000/add" method="post" id="form">
+            <fieldset>
+                <legend></legend>
+                <div>
+                    <label for="input_name">이름</label>
+                    <input type="text" id="input_name" name="input_name">
+                </div>
+                <div>
+                    <label for="input_number">연락처</label>
+                    <input type="text" id="input_number" name="input_number">
+                </div>
+                <div>
+                    <label for="input_email">이메일</label>
+                    <input type="text" id="input_email" name="input_email">
+                    <select name="" id="">
+                        <option value="">선택하세요</option>
+                        <option value="">@naver.com</option>
+                        <option value="">@gmail.com</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="relation">관계</label>
+                    <input type="radio" id="relation1" name="relation">가족
+                    <input type="radio" id="relation2" name="relation" >친구
+                    <input type="radio" id="relation3" name="relation" >동료
+                </div>
+                <div>
+                    <input type="submit" value="등록">
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
