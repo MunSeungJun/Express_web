@@ -10,13 +10,13 @@ function writeList() {
     items += `<div class="border d-flex mb-2 gap-3">
         <div><img src="images/profile.jpg" alt=""></div>
         <ul class="d-flex flex-column justify-content-center">
-        <li>이름: ${data.name}</li> 
-        <li>전화번호: ${data.phone}</li>
-        <li>직업: ${data.job}</li>
-        <li>메모: ${data.memo}</li>
+        <li>${data.name}</li> 
+        <li>${data.phone}</li>
+        <li>${data.job}</li>
+        <li>${data.memo}</li>
         </ul>
         <div class="d-flex justify-content-center align-items-center">
-        <div><button type="button" class="mb-2"><span class="material-symbols-outlined">edit</span></button>
+        <div><button type="button" class="mb-2" onclick="location.href='https://www.naver.com'"><span class="material-symbols-outlined">edit</span></button>
         <button type="button" class="mt-2"><span class="material-symbols-outlined">sms</span></button></div>
         <div><button type="button" class="mb-2"><span class="material-symbols-outlined">delete</span></button>
         <button type="button" class="mt-2"><span class="material-symbols-outlined">call</span></button></div></div>
