@@ -3,13 +3,39 @@
 *{
     padding: 0;
 }
+body {
+  font-family: "Hi Melody", serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow: hidden;
+}
+li {
+    list-style: none;
+}
 a{
     text-decoration: none;
+}
+.flex-1{
+    flex: 1;
+}
+.flex-2{
+    flex: 2;
+}
+.flex-3{
+    flex: 3;
+}
+.flex-4{
+    flex: 4;
+}
+.position-relative{
+    position: relative;
 }
 
 /* header */
 #main_nav{
     background-color: dodgerblue;
+    height: 15%;
+    width: 100%;
 }
 #main_nav a{
     color: white;
@@ -21,6 +47,8 @@ a{
     background-color: rgb(28, 99, 169);
     padding: .5rem;
     border-radius: 10px;
+    border: 0;
+    color: white;
 }
 .main_nav_btn{
     background: none;
@@ -28,4 +56,27 @@ a{
 }
 .main_nav_btn span{
     color: white;
+}
+#menu_list{
+    position: absolute;
+    top: 11%;
+    left: 85%;
+}
+#menu_list button  {
+    border: 0;
+    background-color: white;
+    padding: .5rem;
+}
+
+/* main */
+#lists{
+    height: 600px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.list_body input{
+    position: absolute;
+    
+    top: 5%;
+    left: 1%;
 }
