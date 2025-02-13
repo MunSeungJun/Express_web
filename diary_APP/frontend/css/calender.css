@@ -1,0 +1,9 @@
+#dates{
+    display: grid;
+    grid-template-columns: repeat(7, 20px);
+    grid-gap: 0.5rem;
+}
+
+.font2{
+    color: gray;
+}
