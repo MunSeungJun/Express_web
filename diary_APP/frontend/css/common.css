@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+*{
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+/* header */
+#main_nav{
+    background-color: dodgerblue;
+}
+#main_nav a{
+    color: white;
+}
+#home {
+    font-size: 1.5rem;
+}
+#add_btn{
+    background-color: rgb(28, 99, 169);
+    padding: .5rem;
+    border-radius: 10px;
+}
+.main_nav_btn{
+    background: none;
+    border: 0;
+}
+.main_nav_btn span{
+    color: white;
+}
