@@ -27,9 +27,6 @@ a{
 .flex-4{
     flex: 4;
 }
-.position-relative{
-    position: relative;
-}
 
 /* header */
 #main_nav{
@@ -74,9 +71,11 @@ a{
     overflow-y: scroll;
     scrollbar-width: none;
 }
+.list_body {
+    position: relative;
+}
 .list_body input{
     position: absolute;
-    
     top: 5%;
     left: 1%;
 }

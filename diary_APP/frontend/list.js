@@ -13,11 +13,12 @@ window.addEventListener("DOMContentLoaded", (e) => {
     logJSONData(url)
 })
 
+
+/* add form 이벤트 */
 addBtn.addEventListener("click", () => {
     addDiary.classList.remove("d-none")
 })
 
-/* add form 이벤트 */
 addForm.addEventListener("reset", () => {
     addDiary.classList.add("d-none")
 })
@@ -36,7 +37,7 @@ addForm.addEventListener("submit", () => {
 })
 /* menu 이벤트 */
 menuBtn.addEventListener("click", () => {
-    menuList.classList.remove("d-none")
+    menuList.classList.toggle("d-none")
 })
 deletBtn.addEventListener("click", () => {
     list = ""
@@ -87,7 +88,7 @@ async function deleteJSONdata(url) {
     `
     for (let diary of diarys) {
         list += `      
-            <div class="list_body position-relative border d-flex mb-3 bg-white">
+            <div class="list_body border d-flex mb-3 bg-white">
                 <input type="checkbox" id="delete_check${diary.id}" name="delete_check${diary.id}">
                 <label for="delete_check${diary.id}">
                 <img src="https://picsum.photos/150/150" alt="" /></label>
