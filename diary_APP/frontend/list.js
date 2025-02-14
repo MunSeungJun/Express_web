@@ -13,16 +13,15 @@ window.addEventListener("DOMContentLoaded", (e) => {
     logJSONData(url)
 })
 
-
 /* add form 이벤트 */
 addBtn.addEventListener("click", () => {
     addDiary.classList.remove("d-none")
 })
 
+
 addForm.addEventListener("reset", () => {
     addDiary.classList.add("d-none")
 })
-
 addForm.addEventListener("submit", () => {
     const title = addForm.querySelector("#title").value
     const text = addForm.querySelector("#text").value
@@ -37,11 +36,11 @@ addForm.addEventListener("submit", () => {
 })
 /* menu 이벤트 */
 menuBtn.addEventListener("click", () => {
-    menuList.classList.toggle("d-none")
+    menuList.classList.remove("d-none")
 })
 deletBtn.addEventListener("click", () => {
-    list = ""
-    deleteJSONdata(url)
+    
+
 })
 
 /* get 요청 */
@@ -55,7 +54,9 @@ async function logJSONData(url) {
     for (let diary of diarys) {
         list += `      
             <div class="list_body border d-flex mb-3 bg-white">
-                <img src="https://picsum.photos/150/150" alt="" />
+                 <input type="checkbox"  id="${diary.id}" name="${diary.id}" value="off">
+                <label for="${diary.id}">
+                <img src="https://picsum.photos/150/150" alt="" /></label>
                 <div class="p-3">
                     <p class="diary_title">${diary.title}</p>
                     <p class="diary_text">${diary.text}</p>
@@ -78,27 +79,8 @@ async function addJSONDdata(url = "", data = {}) {
     })
 }
 /* delete 요청 */
-
 async function deleteJSONdata(url) {
-    const response = await fetch(url)
-    const diarys = await response.json()
-    list += `
-    <div id="list_container" class="p-3 bg-body-secondary">
-        <p> 2025-2 </p>
-    `
-    for (let diary of diarys) {
-        list += `      
-            <div class="list_body border d-flex mb-3 bg-white">
-                <input type="checkbox" id="delete_check${diary.id}" name="delete_check${diary.id}">
-                <label for="delete_check${diary.id}">
-                <img src="https://picsum.photos/150/150" alt="" /></label>
-                <div class="p-3">
-                    <p class="diary_title">${diary.title}</p>
-                    <p class="diary_text">${diary.text}</p>
-                </div>
-            </div>
-        `
-    }
-    list += `</div>`
-    lists.innerHTML = list
+    const res  = await fetch(`${url}/${id}`, {
+        method: "DELETE"
+    })
 }
