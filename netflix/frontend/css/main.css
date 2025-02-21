@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+body{
+    background-color: black;
+}
+
+#membership{
+    background-color: rgb(45, 33, 91);
+}
+
+.carousel_btn{
+    background-color: rgb(26, 26, 26);
+    border: 0;
+    color: white;
+    border-radius: 10px;
+    height: 120px;
+}
+.carousel_wrap{
+    position: relative;
+    overflow: hidden;
+    width: 1137px;
+    height: 300px;
+}
+.carousel_list{
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    width: 9999px;
+    left: 0;
+}

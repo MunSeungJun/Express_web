@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+
+.header_container{
+    background-image: url("../images/hero_img.jpg");
+    height: 900px;
+    max-width: 1920px;
+}
+.header_bg{
+    background-color: rgba(0,0,0,0.7);
+    height: 900px;
+}
+.logo{
+    width: 200px;
+    height: 80px;
+}
+#email_box{
+    position: relative;
+}
+
+#email_input{
+    height: 3.5rem;
+    text-indent: .5rem;
+    color: white;
+}
+
+#email_label{
+    position: absolute;
+    color: #666;
+    transition: all 0.2s ease-out;
+    
+}
+
+.email_label_blur{
+    left: 8%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.email_label_focus{
+    left: 8%;
+    top: 5%;
+    font-size: .75rem;
+}
