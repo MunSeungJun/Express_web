@@ -27,3 +27,6 @@ body{
     width: 2532px;
     left: 0;
 }
+.radient {
+    background: repeating-linear-gradient(to top left, rgb(26, 33,68), rgb(29,24,46), rgb(31, 18, 32));
+}
