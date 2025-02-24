@@ -18,12 +18,12 @@ body{
 .carousel_wrap{
     position: relative;
     overflow: hidden;
-    width: 1137px;
+    width: 1242px;
     height: 300px;
 }
 .carousel_list{
     position: absolute;
-    transition: all 0.5s ease-in-out;
-    width: 9999px;
+    transition: all 0.75s ease-in-out;
+    width: 2532px;
     left: 0;
 }
