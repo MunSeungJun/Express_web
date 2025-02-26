@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxcar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div id="side_bar" class="position-fixed">
+        <div class="side_bar_title d-flex justify-content-around align-items-center bg-body-secondary  w-100">
+            <div class="fs-5">비교상품 (<span id="now_count">0</span>/<span id="max_count">5</span>)</div>
+            <button id="close_btn" class="btn fs-3">&times;</button>
+        </div>
+        <div class="side_bar_body">
+            <ul class="side_bar_list d-flex flex-column"></ul>
+        </div>
+    </div>
+    <header>
+        <div class="container container_header position-relative bg-primary-subtle p-0 mx-auto">
+            <div class="compare bg-primary">
+                <div class="compare-body text-white text-capitalize p-1">compare</div>
+            </div>
+            <div class="title py-4 fs-1 text-capitalize text-center fw-bold">find your dream car</div>
+            <div class="search_box">
+                <form id="search_form" class="bg-white rounded-5 w-75 mx-auto my-3" autocomplete="off">
+                    <div class="search_form_body">
+                        <ul class="search_list d-flex justify-content-between p-3 gap-3">
+                            <li class="search_info d-flex flex-grow-1">
+                                <select name="used_car" id="used_car" class="border-0  fs-4">
+                                    <option value="">used cars</option>
+                                    <option value="inner">국내</option>
+                                    <option value="outer">해외</option>
+                                </select>
+                            </li>
+                            <li class="search_info d-flex flex-grow-1">
+                                <select name="makers" id="makers" class="border-0 fs-4">
+                                    <option value="">makers</option>
+                                    <option value="">현대</option>
+                                    <option value="">기아</option>
+                                </select>
+                            </li>
+                            <li class="search_info d-flex flex-grow-1">
+                                <select name="model" id="model" class="border-0 fs-4">
+                                    <option value="">model</option>
+                                    <option value="">그랜져</option>
+                                    <option value="">카니발</option>
+                                    <option value="">k5</option>
+                                </select>
+                            </li>
+                            <input type="text" placeholder="price" class="search_info border-0 fs-4">
+                            <button type="submit" class="search_btn border-0 bg-primary rounded-circle"><span
+                                    class="material-symbols-outlined p-2 text-white">search</span></button>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="header_img">
+                <img src="images/header_img.png" alt="">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container m-0 p-0 mx-auto my-5">
+            <section class="browse_type mb-5">
+                <div class="browse_type_header text-capitalize text-center fs-1 fw-bold mb-4">browse by type</div>
+                <div class="browse_type_body">
+                    <ul class="browse_type_list d-flex justify-content-center gap-3">
+                        <li class="browse_type_item border rounded-1">
+                            <a href="#" class="fs-2 d-flex flex-column py-1 px-4 justify-content-center align-items-center"><span class="type_img material-symbols-outlined">directions_car</span>suv</a>
+                        </li>
+                        <li class="type_item border rounded-1">
+                            <a href="#" class="fs-2 d-flex flex-column py-1 px-4 justify-content-center align-items-center"><span class="type_img material-symbols-outlined">delivery_truck_speed</span>truck</a>
+                        </li>
+                        <li class="type_item border rounded-1">
+                            <a href="#" class="fs-2 d-flex flex-column py-1 px-4 justify-content-center align-items-center"><span class="type_img material-symbols-outlined">airport_shuttle</span>van</a>
+                        </li>
+                        <li class="type_item border rounded-1">
+                            <a href="#" class="fs-2 d-flex flex-column py-1 px-4 justify-content-center align-items-center"><span class="type_img material-symbols-outlined">bike_scooter</span>bike</a>
+                        </li>
+                        <li class="type_item border rounded-1">
+                            <a href="#" class="fs-2 d-flex flex-column py-1 px-4 justify-content-center align-items-center"><span class="type_img material-symbols-outlined">electric_car</span>electric</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="order_type mb-5">
+                <div class="order_type_header text-capitalize text-center fs-1 fw-bold mb-4">buy or sell</div>
+                <div class="order_type_body mb-5 d-flex justify-content-between gap-4">
+                    <div class="order_type_buy bg-light-blue rounded-5 flex-grow-1 p-5">
+                        <div class="order_type_title text-capitalize fs-1 fw-bold">are you looking<br>for a car?</div>
+                        <div class="order_type_text fs-3 my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, perspiciatis.</div>
+                        <button class="btn fs-3 bg-primary rounded-3 text-center px-5 text-white">buy</button>
+                    </div>
+                    <div class="order_type_cell bg-light-pink rounded-5 flex-grow-1 p-5">
+                        <div class="order_type_title text-capitalize fs-1 fw-bold">do you want to<br>sell a car?</div>
+                        <div class="order_type_text fs-3 my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, aliquam?</div>
+                        <button class="btn fs-3 bg-danger rounded-3 text-center px-5 text-white">sell</button>
+                    </div>
+                </div>
+            </section>
+            <section class="popular_car mb-5">
+                <div class="popular_car_header">
+                    <div class="popular_car_title text-capitalize text-center fs-1 fw-bold mb-4">the most searched cars</div>
+                    <div class="popular_car_tabs border-bottom">
+                        <ul class="popular_car_tabs_list d-flex justify-content-center gap-4 fs-4">
+                            <li class="popular_car_tabs_item active" data-index="0">
+                                <a href="#">in stock</a>
+                            </li>
+                            <li class="popular_car_tabs_item" data-index="1">
+                                <a href="#">sedan</a>
+                            </li>
+                            <li class="popular_car_tabs_item" data-index="2">
+                                <a href="#">suv</a>
+                            </li>
+                            <li class="popular_car_tabs_item" data-index="3">
+                                <a href="#">convertible</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="popular_car_body w-100 d-flex justify-content-center">
+                    <div class="popular_car_list_wrap">
+                        <ul class="popular_car_list d-flex gap-3">
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="0">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/in_stock.jpg" alt="" class="img-fluid" data-src="images/in_stock.jpg" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">toyota</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="1">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/in_stock.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">toyota</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="2">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/in_stock.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">toyota</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="3">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/in_stock.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">toyota</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="4">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/kia_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">kia</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="5">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/kia_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">kia</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="6">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/kia_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">kia</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="7">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/kia_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">kia</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="8">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/bmw_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">bmw</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="9">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/bmw_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">bmw</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="10">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/bmw_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">bmw</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="11">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/bmw_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">bmw</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="12">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/ferrari_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">ferrari</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="13">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/ferrari_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">ferrari</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="14">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/ferrari_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">ferrari</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="popular_car_item border rounded-4 overflow-hidden" data-id="15">
+                                <div class="car_img_wrap position-relative">
+                                    <p class="tag position-absolute bg-success text-white rounded-3 py-1 px-3">great price</p>
+                                    <button class="bookmark d-flex p-2 rounded-circle border-0  position-absolute "><span class="material-symbols-outlined">
+                                        bookmark
+                                        </span></button>
+                                    <img src="images/ferrari_img.jpg" alt="" class="img-fluid" >
+                                </div>
+                                <div class="car_spec p-3">
+                                    <h3 class="fs-2 m-0">ferrari</h3>
+                                    <p class="fs-3">3.5 q6 </p>
+                                    <ul class="d-flex gap-5 justify-content-center my-2">
+                                        <li><span class="material-symbols-outlined">
+                                            swap_driving_apps_wheel
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            local_gas_station
+                                            </span></li>
+                                        <li><span class="material-symbols-outlined">
+                                            auto_transmission
+                                            </span></li>
+                                    </ul>
+                                    <div class="d-flex justify-content-around align-items-center fs-4">
+                                        <p>$40,000</p>
+                                        <a href="">view detail &gt;</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <button id="prev_btn" class="btn fs-2">&lt;</button>
+                    <div class="fs-4"><span class="count">1</span>/4</div>
+                    <button id="next_btn" class="btn fs-2">&gt;</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <aside>
+        <div class="container p-3">
+            <div class=" text-capitalize text-center fs-1 fw-bold mb-4">why choose us?</div>
+            <div>
+                <ul class=" d-flex justify-content-center gap-4">
+                    <li>
+                        <div><span class="material-symbols-outlined fs-1 text-primary">
+                            finance_mode
+                            </span></div>
+                        <div class="fs-3 text-capitalize fw-bold">special financing offers</div>
+                        <div class="fs-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, voluptatibus!</div>
+                    </li>
+                    <li>
+                        <div><span class="material-symbols-outlined fs-1 text-primary">
+                            diamond
+                            </span></div>
+                        <div class="fs-3 text-capitalize fw-bold">trusted car dealership</div>
+                        <div class="fs-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, minima!</div>
+                    </li>
+                    <li>
+                        <div><span class="material-symbols-outlined fs-1 text-primary">
+                            paid
+                            </span></div>
+                        <div class="fs-3 text-capitalize fw-bold">transparent pricing</div>
+                        <div class="fs-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, optio!</div>
+                    </li>
+                    <li>
+                        <div><span class="material-symbols-outlined fs-1 text-primary">
+                            handyman
+                            </span></div>
+                        <div class="fs-3 text-capitalize fw-bold">expert car service</div>
+                        <div class="fs-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, reprehenderit.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <div class="container">
+            <div class="d-flex justify-content-around mt-5 p-5 border-top">
+                <div class="footer_logo d-flex justify-content-center"><img src="images/logo_img.png" alt=""></div>
+                <div class="footer_info fs-3">
+                    <p>copyright &copy; Lorem, ipsum dolor.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script/jquery-3.7.1.min.js"></script>
+    <script src="script/main.js"></script>
+</body>
+
+</html>

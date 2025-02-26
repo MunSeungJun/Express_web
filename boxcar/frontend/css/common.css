@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Hi Melody", serif;
+}
+.container_header{
+    min-height: 600px;
+}
+/* side bar */
+#side_bar{
+    right: -40rem;
+    top: 0;
+    width: 20%;
+    height: 100vh;
+    z-index: 9999;
+    background-color: white;
+    box-shadow: -10px 0 5px rgba(0, 0, 0, .5);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.1s ease-in-out;
+    
+}
+.visible{
+    right: 0 !important;
+}
+
+/* header */
+
+.compare{
+    transform: rotate(90deg);
+    position: fixed;
+    z-index: 9998;
+    right: 5%;
+    top: 1%;
+}
+.header_img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+}
+input::placeholder{
+    color: black;
+}
+select, input{
+    outline: none;
+}
+
+/* main */
+.type_img{
+    font-size: 4rem;
+}
+
+.bg-light-blue{
+    background-color: rgb(192, 227, 242);
+}
+.bg-light-pink{
+    background-color: rgb(246, 211, 215);
+}
+.active{
+    border-bottom: 3px solid blue;
+}
+.tag{
+    top: 5%;
+    left: 2%;
+}
+.car_img_wrap img{
+    width: 400px;
+    height: 210px;
+}
+.bookmark{
+    top: 5%;
+    right: 2%;
+    background-color: white;
+}
+.bookmark_add{
+    background-color: blue;
+    color: white;
+}
+.popular_car_list_wrap{
+    position: relative;
+    width: 1320px;
+    height: 412px;
+    overflow: hidden;
+    
+}
+.popular_car_list{
+    position: absolute;
+    max-width: 5328px;
+    left: 0;
+}
+.popular_car_item{
+    min-width: 318px
+}
